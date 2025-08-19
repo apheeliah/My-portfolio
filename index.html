@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Mubby M’lawal – Web Developer</title>
+
+  <meta name="description" content="Mubby M’lawal – Web Developer building modern, responsive websites with HTML, CSS & JavaScript." />
+
+  <meta property="og:title" content="Mubby M’lawal – Web Developer" />
+
+  <meta property="og:description" content="Modern, responsive websites for portfolios and businesses." />
+
+  <meta property="og:type" content="website" />
+
+  <meta property="og:url" content="https://your-domain.xyz" />
+
+  <meta property="og:image" content="https://your-domain.xyz/og-image.jpg" />
+
+  <meta name="theme-color" content="#1a1027" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BHZ1E3C1lN1qUq9eUGqvKYcCP0JbXQ1QF5nEGG6dkhTW0Pp1F1r5V0A6wPGbN8DLg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+
+    :root{
+
+      --bg:#0f0a16;           /* near black */
+
+      --ink:#eae6f5;         /* soft white */
+
+      --muted:#b9a9d6;       /* muted text */
+
+      --primary:#8b5cf6;     /* purple */
+
+      --primary-2:#ec4899;   /* pink */
+
+      --card:#161022;        /* card bg */
+
+      --accent:#22d3ee;      /* cyan accent for focus */
+
+      --shadow:0 20px 50px rgba(0,0,0,.45);
+
+      --radius:1.25rem;
+
+      --max:1100px;
+
+    }
+
+    *{box-sizing:border-box}
+
+    html{scroll-behavior:smooth}
+
+    body{
+
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+
+      color:var(--ink); background:radial-gradient(1200px 600px at 80% -10%, rgba(139,92,246,.25), transparent 60%),
+
+      radial-gradient(900px 500px at -10% 10%, rgba(236,72,153,.18), transparent 55%), var(--bg);
+
+    }
+
+    a{color:inherit; text-decoration:none}
+
+    img{max-width:100%; display:block}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+
+    /* Header */
+
+    header{
+
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px);
+
+      background:rgba(15,10,22,.55); border-bottom:1px solid rgba(255,255,255,.06);
+
+    }
+
+    .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
+
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px}
+
+    .brand .logo{width:36px; height:36px; border-radius:12px; background:linear-gradient(135deg, var(--primary), var(--primary-2)); display:grid; place-items:center; box-shadow:var(--shadow)}
+
+    .brand .logo span{font-weight:900}
+
+    nav ul{display:flex; gap:18px; list-style:none; margin:0; padding:0}
+
+    nav a{padding:8px 12px; border-radius:10px; opacity:.9}
+
+    nav a:hover, nav a:focus{background:rgba(255,255,255,.06); outline:2px solid transparent}
+
+    .cta{display:flex; gap:10px; align-items:center}
+
+    .btn{
+
+      display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.12);
+
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03)); transition:.2s transform ease;
+
+    }
+
+    .btn.primary{border-color:transparent; background:linear-gradient(135deg, var(--primary), var(--primary-2));}
+
+    .btn:hover{transform:translateY(-1px)}
+
+    .menu-btn{display:none}
+
+    /* Hero */
+
+    .hero{padding:80px 0 40px}
+
+    .hero .grid{display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center}
+
+    .kicker{display:inline-flex; align-items:center; gap:8px; font-weight:600; color:var(--muted); background:rgba(255,255,255,.06); padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.1)}
+
+    h1{font-size:clamp(32px, 5vw, 54px); line-height:1.05; margin:14px 0 12px}
+
+    .lead{font-size:clamp(16px, 2.1vw, 18px); color:#d9d3ea; opacity:.95}
+
+    .hero .actions{margin-top:22px; display:flex; gap:12px; flex-wrap:wrap}
+
+    .card{
+
+      background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.09);
+
+      box-shadow:var(--shadow); border-radius:var(--radius); padding:18px;
+
+    }
+
+    /* Sections */
+
+    section{padding:64px 0}
+
+    .section-title{font-size:28px; margin:0 0 16px}
+
+    .muted{color:var(--muted)}
+
+    /* Skills */
+
+    .chips{display:flex; flex-wrap:wrap; gap:10px}
+
+    .chip{padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.05); font-weight:600}
+
+    /* Projects */
+
+    .projects{display:grid; grid-template-columns:repeat(3, 1fr); gap:18px}
+
+    .project{overflow:hidden; position:relative}
+
+    .project .thumb{aspect-ratio:16/10; border-radius:16px; overflow:hidden; background:#120b1f}
+
+    .project .thumb img{width:100%; height:100%; object-fit:cover; filter:saturate(1.05)}
+
+    .project .info{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:10px}
+
+    .project .info h3{font-size:18px; margin:0}
+
+    .project .tags{display:flex; gap:8px}
+
+    .tag{font-size:12px; padding:6px 10px; border-radius:999px; background:rgba(139,92,246,.16); border:1px solid rgba(139,92,246,.3)}
+
+    /* About */
+
+    .about{display:grid; grid-template-columns:1fr 1.2fr; gap:24px; align-items:center}
+
+    .avatar{width:120px; height:120px; border-radius:50%; background:linear-gradient(135deg, var(--primary), var(--primary-2)); padding:3px}
+
+    .avatar img{width:100%; height:100%; object-fit:cover; border-radius:50%}
+
+    /* Contact */
+
+    .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+
+    form{display:grid; gap:12px}
+
+    input, textarea{
+
+      width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.14);
+
+      background:rgba(255,255,255,.04); color:var(--ink); outline-color:var(--accent);
+
+    }
+
+    textarea{min-height:120px; resize:vertical}
+
+    /* Footer */
+
+    footer{padding:24px 0 60px; color:var(--muted)}
+
+    /* Responsive */
+
+    @media (max-width: 980px){
+
+      .hero .grid{grid-template-columns:1fr}
+
+      .about{grid-template-columns:1fr}
+
+      .projects{grid-template-columns:repeat(2, 1fr)}
+
+      .contact-grid{grid-template-columns:1fr}
+
+    }
+
+    @media (max-width: 620px){
+
+      nav ul{display:none}
+
+      .menu-btn{display:inline-flex}
+
+      .projects{grid-template-columns:1fr}
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+
+    <div class="wrap nav">
+
+      <a class="brand" href="#home" aria-label="Go to home">
+
+        <div class="logo" aria-hidden="true"><span>M</span></div>
+
+        <span>Mubby M’lawal</span>
+
+      </a>
+
+      <nav aria-label="Primary">
+
+        <ul>
+
+          <li><a href="#projects">Projects</a></li>
+
+          <li><a href="#skills">Skills</a></li>
+
+          <li><a href="#about">About</a></li>
+
+          <li><a href="#contact">Contact</a></li>
+
+        </ul>
+
+      </nav>
+
+      <div class="cta">
+
+        <a class="btn" href="#contact"><i class="fa-solid fa-paper-plane"></i>Hire Me</a>
+
+        <a class="btn primary" href="assets/Mubby-Resume.pdf" target="_blank" rel="noopener">
+
+
+</a>
+        <a class="btn primary" href="assets/Mubby-Resume.pdf" target="_blank" rel="noopener">
+
+  <i class="fa-solid fa-file-pdf"></i> Resume
+
+</a>
+
+        <button class="btn menu-btn" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <main id="home" class="wrap">
+
+    <!-- HERO -->
+
+    <section class="hero" aria-labelledby="hero-title">
+
+      <span class="kicker"><i class="fa-solid fa-code"></i> Freelance Web Developer</span>
+
+      <div class="grid">
+
+        <div>
+
+          <h1 id="hero-title">I build clean, fast, <span style="background:linear-gradient(135deg,var(--primary),var(--primary-2)); -webkit-background-clip:text; background-clip:text; color:transparent">responsive websites</span>.</h1>
+
+          <p class="lead">I help creators and small businesses go online with modern HTML, CSS & JavaScript. Mobile-first, accessible, and optimized for results.</p>
+
+          <div class="actions">
+
+            <a class="btn primary" href="#projects"><i class="fa-solid fa-grid-2"></i> View Projects</a>
+
+            <a class="btn" href="#contact"><i class="fa-brands fa-whatsapp"></i> WhatsApp Me</a>
+
+          </div>
+
+        </div>
+
+        <div class="card" aria-label="Quick stats">
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+
+            <div class="card" style="padding:14px">
+
+              <div class="muted">Projects</div>
+
+              <div style="font-size:28px; font-weight:800">8+</div>
+
+            </div>
+
+            <div class="card" style="padding:14px">
+
+              <div class="muted">Response</div>
+
+              <div style="font-size:28px; font-weight:800">Fast ⚡</div>
+
+            </div>
+
+            <div class="card" style="grid-column:span 2; padding:14px">
+
+              <div class="muted">What I do</div>
+
+              <div style="font-weight:600; margin-top:6px">Landing pages • Portfolio sites • Bug fixes • Responsive redesigns</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section id="projects" aria-labelledby="projects-title">
+
+      <h2 class="section-title" id="projects-title">Featured Projects</h2>
+
+      <p class="muted" style="margin:0 0 14px">A selection of simple, fast, and responsive builds.</p>
+
+      <div class="projects">
+
+        <!-- Project Card -->
+
+        <article class="project" aria-labelledby="p1-title">
+
+          <a class="thumb" href="#" target="_blank" rel="noopener">
+
+            <img src="https://i.imgur.com/OTYiCHl.jpg" alt="Screenshot of a clean basic business website" />
+
+          </a>
+
+          <div class="info">
+
+            <h3 id="p1-title">Personal Portfolio</h3>
+
+            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span></div>
+
+          </div>
+
+        </article>
+
+        <!-- Duplicate & edit these cards with your own links/images -->
+
+        <article class="project" aria-labelledby="p2-title">
+
+          <a class="thumb" href="#" target="_blank" rel="noopener">
+
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Landing page mockup" />
+
+          </a>
+
+          <div class="info">
+
+            <h3 id="p2-title">Business Landing Page</h3>
+
+            <div class="tags"><span class="tag">Responsive</span><span class="tag">SEO</span></div>
+
+          </div>
+
+        </article>
+
+        <article class="project" aria-labelledby="p3-title">
+
+          <a class="thumb" href="#" target="_blank" rel="noopener">
+
+            <img src="https://i.imgur.com/ZRFyhTm.jpg" alt="My personal website built preview" />
+
+          </a>
+
+          <div class="info">
+
+            <h3 id="p3-title">Simple Dashboard</h3>
+
+            <div class="tags"><span class="tag">JS</span><span class="tag">Charts</span></div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- SKILLS -->
+
+    <section id="skills" aria-labelledby="skills-title">
+
+      <h2 class="section-title" id="skills-title">Skills</h2>
+
+      <div class="chips">
+
+        <span class="chip"><i class="fa-brands fa-html5"></i>&nbsp; HTML5</span>
+
+        <span class="chip"><i class="fa-brands fa-css3-alt"></i>&nbsp; CSS3</span>
+
+        <span class="chip"><i class="fa-brands fa-js"></i>&nbsp; JavaScript</span>
+
+        <span class="chip"><i class="fa-solid fa-mobile"></i>&nbsp; Responsive Design</span>
+
+        <span class="chip"><i class="fa-brands fa-git-alt"></i>&nbsp; Git & GitHub</span>
+
+        <span class="chip"><i class="fa-solid fa-rocket"></i>&nbsp; Performance</span>
+
+        <span class="chip"><i class="fa-solid fa-universal-access"></i>&nbsp; Accessibility</span>
+
+        <span class="chip"><i class="fa-solid fa-magnifying-glass"></i>&nbsp; SEO Basics</span>
+
+      </div>
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section id="about" aria-labelledby="about-title">
+
+      <h2 class="section-title" id="about-title">About</h2>
+
+      <div class="about">
+
+        <div style="display:flex; gap:16px; align-items:center">
+
+          <div class="avatar" aria-hidden="true"><img src="https://i.imgur.com/SRjm9qw.jpg" alt="" /></div>
+
+          <div>
+
+            <h3 style="margin:.2rem 0">Mubby M’lawal</h3>
+
+            <p class="muted" style="margin:0">Web Developer • Abuja, NG</p>
+
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <p style="margin:0 0 8px">I can build a simple, beautiful websites that work on every device. I focus on clean code, accessibility, and fast load speed. If you need a portfolio, landing page, or bug fix, I’m the man.</p>
+
+          <ul style="margin:0; padding-left:18px; line-height:1.8">
+
+            <li>Mobile-first, accessible layouts</li>
+
+            <li>Deployed on GitHub Pages, Netlify or Vercel</li>
+
+            <li>Clear communication and fast turnaround</li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact" aria-labelledby="contact-title">
+
+      <h2 class="section-title" id="contact-title">Contact</h2>
+
+      <div class="contact-grid">
+
+        <form class="card" onsubmit="return handleSubmit(event)">
+
+          <label>
+
+            <span class="muted">Your Name</span>
+
+            <input required name="name" placeholder="Ed Sheeran" />
+
+          </label>
+
+          <label>
+
+            <span class="muted">Email</span>
+
+            <input required type="email" name="email" placeholder="you@example.com" />
+
+          </label>
+
+          <label>
+
+            <span class="muted">Message</span>
+
+            <textarea required name="message" placeholder="Tell me about your project…"></textarea>
+
+          </label>
+
+          <button class="btn primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Send</button>
+
+        </form>
+
+        <div class="card">
+
+          <h3 style="margin-top:0">Let’s work together</h3>
+
+          <p class="muted">Prefer chat? Message me on WhatsApp or send an email. I usually reply within a few hours.</p>
+
+          <p>
+
+            <a class="btn" href="mailto:apheeliah5@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+
+            <a class="btn" href="https://wa.me/2349130217326" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+
+          </p>
+
+          <p class="muted" style="margin-top:16px"><i class="fa-brands fa-github"></i> <a href="https://github.com/yourhandle" target="_blank" rel="noopener">github.com/apheeliah</a></p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
+
+      <div class="muted">© <span id="year"></span> Mubby M’lawal. All rights reserved.</div>
+
+      <div style="display:flex; gap:10px">
+
+        <a class="btn" href="#home" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script>
+
+    // Dynamic year
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Minimal form handler – opens email client with prefilled subject/body
+
+    function handleSubmit(e){
+
+      e.preventDefault();
+
+      const data = new FormData(e.target);
+
+      const name = encodeURIComponent(data.get('name'));
+
+      const email = encodeURIComponent(data.get('email'));
+
+      const msg = encodeURIComponent(data.get('message'));
+
+      const subject = `New project from ${name}`;
+
+      const body = `Name: ${name}%0AEmail: ${email}%0A%0A${msg}`;
+
+      window.location.href = `mailto:apheeliah5@gmail.com?subject=${subject}&body=${body}`;
+
+      e.target.reset();
+
+      return false;
+
+    }
+
+    // Mobile menu (progressive enhancement)
+
+    const menuBtn = document.querySelector('.menu-btn');
+
+    const nav = document.querySelector('nav ul');
+
+    menuBtn?.addEventListener('click', () => {
+
+      const open = getComputedStyle(nav).display !== 'none';
+
+      nav.style.display = open ? 'none' : 'flex';
+
+    });
+
+  </script>
+
+</body>
+
+</html>
+
+
+
+
+</body>
+</html>
